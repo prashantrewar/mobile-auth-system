@@ -1,11 +1,10 @@
 # Mobile Number OTP Authentication Service
 
-This is a Golang-based microservice for mobile number/OTP-based authentication. It allows users to register, log in using OTP, resend OTP, and access their details once authenticated.
+This is a Golang-based microservice for mobile number/OTP-based authentication. It allows users to register, log in using OTP, resend OTP, and access their details once authenticated. The service is containerized using Docker and uses PostgreSQL and Redis for data storage and caching.
 
 
 #### Project structure
 
-```
 mobile-auth-system/
 ├── cmd/
 │   └── main.go
@@ -26,15 +25,17 @@ mobile-auth-system/
 ├── routes/
 │   └── routes.go
 ├── .env
+├── docker-compose.yml
+├── Dockerfile
 ├── go.mod
 └── go.sum
 
-```
 
 ## Getting Started
 
 ### Prerequisites
 
+- Docker and Docker Compose installed
 - Golang version 1.21+
 - PostgreSQL and Redis for local development (if not using Docker)
 
@@ -44,8 +45,8 @@ mobile-auth-system/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/msg.git
-cd msg
+git clone https://github.com/yourusername/mobile-auth-system.git
+cd mobile-auth-system
 
 ```
 
@@ -56,7 +57,14 @@ cp .env.example .env
 
 ```
 
-3. The server should now be running on http://localhost:8080.
+3. Start the application using Docker Compose:
+
+```bash
+docker-compose up --build
+
+```
+
+4. The server should now be running on http://localhost:8080.
 
 
 ### Environment Variables
@@ -96,7 +104,7 @@ curl -X POST http://localhost:8080/login/request-otp -H "Content-Type: applicati
 ```bash
 curl -X POST http://localhost:8080/login/verify-otp -H "Content-Type: application/json" -d '{
   "mobile": "1234567890",
-  "otp": "123456"
+  "otp": "your_recieved_otp"
 }'
 
 ```
