@@ -6,7 +6,7 @@ This is a Golang-based microservice for mobile number/OTP-based authentication. 
 #### Project structure
 
 ```
-msg/
+mobile-auth-system/
 ├── cmd/
 │   └── main.go
 ├── config/
