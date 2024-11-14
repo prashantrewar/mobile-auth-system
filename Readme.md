@@ -5,6 +5,7 @@ This is a Golang-based microservice for mobile number/OTP-based authentication. 
 
 #### Project structure
 
+```
 mobile-auth-system/
 ├── cmd/
 │   └── main.go
@@ -29,7 +30,7 @@ mobile-auth-system/
 ├── Dockerfile
 ├── go.mod
 └── go.sum
-
+```
 
 ## Getting Started
 
