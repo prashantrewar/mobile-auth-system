@@ -19,7 +19,7 @@ var (
 
 func Initialize() {
     // Load environment variables
-    if err := godotenv.Load(); err != nil {
+    if err := godotenv.Load("/app/.env"); err != nil {
         log.Fatal("Error loading .env file")
     }
 
